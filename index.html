@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="para"
+        style=" background-color: bisque; margin: 10% 35% 0% ; padding: 10px; width: 200px; border-radius: 5px; box-shadow: 10px 10px 5px;">
+        <form action="" id="myform">
+            <table>
+                <tr>
+                    <th>This is my ajax tutorial</th>
+                </tr>
+                <tr>
+                    <td>Name<input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>Skill<input type="text" name="skill" id="skill"></td>
+                </tr>
+                <tr>
+                    <td><input style="background-color:rgb(136, 136, 255); border: none; padding: 5px; " type="submit"
+                            name="submit" id="submit" value="Sbumit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="state">
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./jquery.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            $('#myform').submit(function (e) {
+                $.post("data.php", $('#myform').serialize(),
+                    function (data) {
+                        $("#state").html(data);
+                    });
+                return false;
+            });
+
+        });
+    </script>
+
+    <!-- serialize is a powerfull function to posh data -->
+    <!-- $('#myform').serialize( ) -->
+    <!-- { "name": "zahid", "skill": "java" } -->
+
+</body>
+
+</html>
